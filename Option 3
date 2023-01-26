@@ -1,0 +1,32 @@
+if (choice == 3):
+        print("The upper left reference corner is currently at ("+str(startX)+" , "+str(startY)+").")
+        print("\n")
+        c = 0
+        while(True):
+            new1 = input("Enter the new startX: ")
+            print("\n")
+            c = checkAndConvert(new1)
+            if(new1==None):
+                print("...enter only integer or decimal point numbers\n\n")
+            else:
+                break
+        startX = c
+        d = 0
+        while(True):
+            new2 = input("Enter the new startY: ")
+            print("\n")
+            d = checkAndConvert(new2)
+            if(new2==None):
+                print("...enter only integer or decimal point numbers\n\n")
+            else:
+                break
+        startY = d
+        g = "·"*400
+        g = setupAxis(g, startX, startY)
+        for i in range(len(eq)):
+            e = eq[i]
+            points = calculateAll(e,list(range(startX,startX+20)))
+            loc = mapToIndex(points, startX, startY)
+            g = addToGraph(g, loc, sym[i])
+        printGraph(g)
+        print("\n")
