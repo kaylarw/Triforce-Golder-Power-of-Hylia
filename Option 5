@@ -1,0 +1,48 @@
+ if (choice == 5):
+        print("The polynomials are currently")
+        for i in range(len(eq)):
+            polyStr = formatPoly(eq[i])
+            print("("+str(i)+") "+str(polyStr)+" ")
+        print("\n")
+        a = 0 
+        while(True):
+            choose1 = input("Choose the first polynomial to determine intersection with: ")
+            print("\n")
+            if(choose1.isnumeric()):
+                a = int(choose1)
+                break
+        b = 0 
+        while(True):
+            choose2 = input("Choose the second polynomial to determine intersection with: ")
+            print("\n")
+            if(choose2.isnumeric()):
+                b = int(choose2)
+                break
+        poly1 = eq[a]
+        poly2 = eq[b]
+        size = max(len(poly1), len(poly2))
+        result = [None]*size
+        i = 0
+        while (i < len(poly1) and i < len(poly2)):
+            result[i] = poly1[i] - poly2[i]
+            i += 1
+        while (i < len(poly1)):
+            result[i] = poly1[i]
+            i +=1
+        while (i < len(poly2)):
+            result[i] = poly2[i]
+            i += 1
+        else:
+            ans = zeros(result)
+            if (len(ans) == 0):
+                print("No real solutions")
+            else:
+                print("The answers are: ")
+                i = 0
+                for i in range(len(ans)):
+                    if (i<len(ans)):
+                        print("Answer"+str(i+1)+": "+str(ans[i])+" ")
+                        i += 1
+        print("\n")
+        printGraph(g)
+        print("\n")
